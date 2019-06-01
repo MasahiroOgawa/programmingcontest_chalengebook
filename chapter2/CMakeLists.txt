@@ -9,4 +9,6 @@ add_executable(sortpermutation sortpermutation/main.cpp)
 add_executable(nolimnum_napsack_bad nolimnum_napsack/bad.cpp)
 add_executable(nolimnum_napsack_good nolimnum_napsack/good.cpp)
 add_executable(napsack_reusevector napsackproblem/reuse_vector.cpp)
+add_executable(nolimnum_napsack_reusevector nolimnum_napsack/reuse_vector.cpp)
+add_executable(napsack_hugeweight napsackproblem/hugeweight.cpp)
 
