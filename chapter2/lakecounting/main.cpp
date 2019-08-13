@@ -6,7 +6,6 @@ using namespace std;
 void fill_lake(vector<vector<int>>& lake){ // nxm lake
   srand(time(NULL));
 
-  int val;
   for(auto& lakerow : lake){
     for(auto& l : lakerow){
       l = rand() % 2;
