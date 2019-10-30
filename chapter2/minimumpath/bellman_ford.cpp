@@ -1,9 +1,12 @@
 #include "../graph/adjacencylist.h"
 #include <iostream>
+
+#define DEBUG
 using namespace std;
 
-void bellman_ford(const Adjacencylist &al) {
-  static const int INF{999999};
+vector<int> bellman_ford(const Adjacencylist &al) {
+    // initialize
+  static constexpr int INF{999999};
   vector<int> dists(al.size(), INF);
   dists[0] = 0;
 
@@ -17,15 +20,17 @@ void bellman_ford(const Adjacencylist &al) {
           update = true;
         }
       }
+
+#ifdef DEBUG
       cout << "current-------------\n";
       for (size_t i = 0; i < dists.size(); ++i)
         cout << "d[" << i << "]= " << dists[i] << endl;
+#endif
+
     } // adjacency list
   }   // while
 
-  cout << "current-------------\n";
-  for (size_t i = 0; i < dists.size(); ++i)
-    cout << "d[" << i << "]= " << dists[i] << endl;
+  return dists;
 }
 
 bool find_negative_loop(const Adjacencylist &al) {
@@ -55,7 +60,11 @@ int main() {
   vector<Edge> g{{4, 5}, {5, 9}};
   Adjacencylist al({a, b, c, d, e, f, g});
 
-  bellman_ford(al);
+  vector<int> dists = bellman_ford(al);
+
+  cout << "final-------------\n";
+  for (size_t i = 0; i < dists.size(); ++i)
+    cout << "d[" << i << "]= " << dists[i] << endl;
 
   cout << "negative loop= " << find_negative_loop(al) << endl;
 }

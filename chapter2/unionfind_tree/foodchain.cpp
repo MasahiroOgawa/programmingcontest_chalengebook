@@ -34,8 +34,8 @@ int main() {
     }
 
     if (i.t == 1) {
-      if (ut.same(i.x, i.y + num_animals) ||
-          ut.same(i.x, i.y + 2 * num_animals)) {
+      if (ut.belong_same(i.x, i.y + num_animals) ||
+          ut.belong_same(i.x, i.y + 2 * num_animals)) {
         cout << "info " << num_info << " is wrong.\n";
         ++num_wrong;
       } else {
@@ -44,7 +44,7 @@ int main() {
         ut.unite(i.x + 2 * num_animals, i.y + 2 * num_animals);
       }
     } else if (i.t == 2) {
-      if (ut.same(i.x, i.y) || ut.same(i.x, i.y + 2 * num_animals)) {
+      if (ut.belong_same(i.x, i.y) || ut.belong_same(i.x, i.y + 2 * num_animals)) {
         cout << "info " << num_info << " is wrong.\n";
         ++num_wrong;
       } else {
