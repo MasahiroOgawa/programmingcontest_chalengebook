@@ -1,16 +1,17 @@
-#include "../graph/adjacencylist.h"
+#include "graph/adjacencylist.hpp"
 #include <iostream>
 #include <queue>
 using namespace std;
 
+
 ///
-/// \brief dijkstra
+/// \brief dijkstra_heap
 /// \param al
-/// compute the minimum distance from the first node of input adjacency list
-/// using Dijkstra method using heap
+/// compute 1st, and 2nd shortest path
 void dijkstra_heap(const Adjacencylist &al) {
   static const int INF{999999};
   vector<int> dists(al.size(), INF);
+  vector<int> dists2(al.size(), INF);
   dists[0] = 0;
   using P = pair<int, int>; // <minimum distance, vertex index>
   priority_queue<P, vector<P>, greater<P>> que; // use heap!
@@ -21,26 +22,33 @@ void dijkstra_heap(const Adjacencylist &al) {
     P minnode = que.top();
     que.pop();
     int sourceidx = minnode.second;
-    if (dists[sourceidx] < minnode.first)
+    if (dists2[sourceidx] < minnode.first)
       continue;
 
     // propagate the distance
     for (auto edge : al[sourceidx]) {
-      if (dists[edge.to] > dists[sourceidx] + edge.cost) {
-        dists[edge.to] = dists[sourceidx] + edge.cost;
+        int new_d = dists[sourceidx] + edge.cost;
+      if (dists[edge.to] > new_d) {
+        dists[edge.to] = new_d;
         que.push(P(dists[edge.to], edge.to));
+      }
+      if (dists2[edge.to] > new_d && dists[edge.to] < new_d) {
+        dists2[edge.to] = new_d;
+        que.push(P(dists2[edge.to], edge.to));
       }
     }
 
     // print distances
     cout << "current-------------\n";
-    for (size_t i = 0; i < dists.size(); ++i)
-      cout << "d[" << i << "]= " << dists[i] << endl;
+    for (size_t i = 0; i < dists.size(); ++i){
+        cout << "d[" << i << "]= " << dists[i] << endl;
+        cout << "d2[" << i << "]= " << dists2[i] << endl;
+    }
   } // while
 }
 
 int main() {
-  // define adjacency list
+  // define undirected adjacency list
   vector<Edge> a{{1, 2}, {2, 5}};
   vector<Edge> b{{0, 2}, {2, 4}, {3, 6}, {4, 10}};
   vector<Edge> c{{0, 5}, {1, 4}, {3, 2}};
