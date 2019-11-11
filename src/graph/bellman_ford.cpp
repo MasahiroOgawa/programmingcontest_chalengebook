@@ -2,17 +2,18 @@
 
 using namespace std;
 
+namespace graph {
+
 ///
 /// \brief bellman_ford
 /// \param al
 /// \return
-///
+/// output distants; distants[i] = d(al[0],al[i]).
 vector<int> bellman_ford(const Adjacencylist& al)
 {
     // initialize
-    static constexpr int INF{ 999999 };
     vector<int> dists(al.size(), INF);
-    dists[0] = 0;
+    dists[0] = 0; // distant to itself.
 
     bool update{ true };
     while (update) {
@@ -34,9 +35,9 @@ vector<int> bellman_ford(const Adjacencylist& al)
 /// \brief find_negative_loop
 /// \param al
 /// \return
-/// find negative loop using bellman ford algorithm
+/// find negative loop using bellman ford algorithm.
 ///
-bool find_negative_loop(const Adjacencylist& al)
+bool  find_negative_loop(const Adjacencylist& al)
 {
     vector<int> dists(al.size(), 0);
 
@@ -55,3 +56,5 @@ bool find_negative_loop(const Adjacencylist& al)
 
     return false;
 }
+
+} // namespace graph

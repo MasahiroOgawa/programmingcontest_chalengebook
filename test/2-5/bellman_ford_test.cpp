@@ -3,7 +3,7 @@
 
 #define DEBUG
 using namespace std;
-
+using namespace graph;
 
 int main() {
 
