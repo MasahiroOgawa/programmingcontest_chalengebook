@@ -9,6 +9,10 @@ target_link_libraries(bellman_ford_test graph)
 add_executable(poj3169 2-5/poj3169.cpp)
 target_link_libraries(poj3169 graph)
 
+add_executable(minscalarproduct 2-7/minscalarproduct.cpp)
+add_executable(crazy_rows 2-7/crazy_rows.cpp)
+add_executable(bribe_the_prisoners 2-7/bribe_the_prisoners.cpp)
+add_executable(millionaire 2-7/millionaire.cpp)
 
 #add_executable(bubunnwa bubunnwa/main.cpp)
 #add_executable(fibonacci fibonacci/main.cpp)
