@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "-O2 -Wall")
 ADD_SUBDIRECTORY(progchallenge)
 ADD_SUBDIRECTORY(1-1)
 ADD_SUBDIRECTORY(1-6)
+add_subdirectory(2-1)
 
 
 ###
