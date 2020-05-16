@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-using namespace math;
+using namespace progchallenge;
 
 namespace {
 
@@ -68,13 +68,13 @@ TEST(ModpowTest, Basic) {
   EXPECT_EQ(mod_pow(2, 2, 3), 1);
   EXPECT_EQ(mod_pow(3, 2, 2), 1);
 
-  EXPECT_EQ(mod_pow(77,10,7), mod_pow2(77,10,7));
+  EXPECT_EQ(mod_pow(77, 10, 7), mod_pow2(77, 10, 7));
 }
 
-TEST(CarmichaelTest, Basic){
-    EXPECT_FALSE(is_carmichael(17));
-    EXPECT_TRUE(is_carmichael(561));
-    EXPECT_FALSE(is_carmichael(4));
+TEST(CarmichaelTest, Basic) {
+  EXPECT_FALSE(is_carmichael(17));
+  EXPECT_TRUE(is_carmichael(561));
+  EXPECT_FALSE(is_carmichael(4));
 }
 
 } // namespace

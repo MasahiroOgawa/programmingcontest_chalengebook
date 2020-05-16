@@ -1,6 +1,6 @@
 project(test CXX) #CXX means that we use c++ as the language
 
-INCLUDE_DIRECTORIES(../src)
+INCLUDE_DIRECTORIES(../progchallenge)
 
 add_executable(bellman_ford_test 2-5/bellman_ford_test.cpp)
 target_link_libraries(bellman_ford_test graph)

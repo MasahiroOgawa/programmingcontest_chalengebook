@@ -1,9 +1,9 @@
 #include <iostream>
-#include <graph/bellman_ford.hpp>
+#include <progchallenge/bellman_ford.hpp>
 
 #define DEBUG
 using namespace std;
-using namespace graph;
+using namespace progchallenge;
 
 int main() {
 

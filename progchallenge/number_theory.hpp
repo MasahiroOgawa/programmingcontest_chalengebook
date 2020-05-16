@@ -1,7 +1,7 @@
 #include <vector>
 #include <map>
 
-namespace math {
+namespace progchallenge {
 
 //===========================
 // gcd

@@ -1,6 +1,6 @@
 #include "number_theory.hpp"
 
-namespace math {
+namespace progchallenge {
 
 ///
 /// \brief extgcd
@@ -110,4 +110,4 @@ bool is_carmichael(const int n) {
   return true;
 }
 
-} // namespace math
+} // namespace progchallenge
