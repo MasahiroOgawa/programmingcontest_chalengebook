@@ -2,3 +2,4 @@ project(challengebook CXX)
 
 add_executable(coin coin.cpp)
 add_executable(interval_scheduling interval_scheduling.cpp)
+add_executable(best_cow_line_poj3617 best_cow_line_poj3617.cpp)
