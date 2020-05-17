@@ -7,6 +7,7 @@ ADD_SUBDIRECTORY(progchallenge)
 ADD_SUBDIRECTORY(1-1)
 ADD_SUBDIRECTORY(1-6)
 add_subdirectory(2-1)
+add_subdirectory(2-2)
 
 
 ###
