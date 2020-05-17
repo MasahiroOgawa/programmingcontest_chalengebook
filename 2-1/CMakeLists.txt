@@ -3,4 +3,12 @@ project(challengebook CXX)
 add_executable(fibonacci fibonacci.cpp)
 add_executable(partialsum partialsum.cpp)
 add_executable(lakecounting lakecounting.cpp)
+
 add_executable(maze_shortestpath maze_shortestpath.cpp)
+target_link_libraries(maze_shortestpath progchallenge)
+
+add_executable(list_allpermutation list_allpermutation.cpp)
+target_link_libraries(list_allpermutation progchallenge)
+
+add_executable(list_allpermutation_stl list_allpermutation_stl.cpp)
+target_link_libraries(list_allpermutation_stl progchallenge)

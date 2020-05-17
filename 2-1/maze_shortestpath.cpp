@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <progchallenge/print.hpp>
 #include <queue>
 #include <string>
 #include <vector>
@@ -15,18 +16,6 @@ ostream &operator<<(ostream &os, const pair<int, int> &p) {
 
 const P operator+(const P &p1, const P &p2) {
   return P(p1.first + p2.first, p1.second + p2.second);
-}
-
-///
-/// \brief show : show maze or min distance map
-///
-template <typename T> void show(vector<vector<T>> maze) {
-  for (const auto &i : maze) {
-    for (const auto &ii : i) {
-      cout << ii << ' ';
-    }
-    cout << endl;
-  }
 }
 
 ///
@@ -66,7 +55,7 @@ bool is_inside(const P &p, const vector<vector<char>> &maze) {
 ///
 int breadth_first_search(const vector<vector<char>> &maze) {
   vector<vector<int>> dist(maze.size(), vector<int>(maze[0].size(), INF));
-  // show<int>(dist);
+  // progchallenge::print<int>(dist);
   vector<P> steps{P(1, 0), P(0, 1), P(-1, 0), P(0, -1)};
   queue<P> nextPts; // to check
 
@@ -97,7 +86,7 @@ int breadth_first_search(const vector<vector<char>> &maze) {
     }
   }
 
-  show<int>(dist);
+  progchallenge::print<int>(dist);
   return dist[goal.first][goal.second];
 }
 
@@ -108,7 +97,7 @@ int breadth_first_search(const vector<vector<char>> &maze) {
 int main() {
   // input
   vector<vector<char>> maze{{'s', '.', '.'}, {'#', '.', '.'}, {'#', '.', 'g'}};
-  show<char>(maze);
+  progchallenge::print<char>(maze);
 
   // compute
   int ans = breadth_first_search(maze);
