@@ -22,8 +22,8 @@ int main() {
 
   // solve
   for (int i = 0; i < n; ++i)
-    for (int j = W; j >= w[i];
-         --j) // note: loop should be backward to get previous value.
+    // note: loop should be backward to get previous value.
+    for (int j = W; j >= w[i]; --j)
       dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
 
   printdp(dp);
