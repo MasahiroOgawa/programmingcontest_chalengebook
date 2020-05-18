@@ -4,17 +4,16 @@
 using namespace std;
 
 // input params
-int w[] = {2, 1, 3, 2};
-int v[] = {3, 2, 4, 2};
+vector<int> w{2, 1, 3, 2};
+vector<int> v{3, 2, 4, 2};
 int W = 5;
 
 // other variables
-int n = sizeof(w) / sizeof(int);
-vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0)); // wee need n+1 because
-                                                       // we check in case
-                                                       // idx==n, and W+1
-                                                       // because we call
-                                                       // maxval(0,W).
+int n = w.size();
+vector<vector<int>>
+    dp(n + 1,
+       vector<int>(W + 1, 0)); // wee need n+1 because we check in case idx==n,
+                               // and W+1 because we call maxval(0,W).
 
 void printdp() {
   cout << "dp=\n";
