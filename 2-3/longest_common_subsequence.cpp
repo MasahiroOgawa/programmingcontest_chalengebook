@@ -11,7 +11,7 @@ void printdp(vector<vector<int>> &v) {
   }
 }
 
-int lcp(string &s, string &t) {
+int lcs(string &s, string &t) {
   int n = s.size();
   int m = t.size();
   vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
@@ -34,5 +34,5 @@ int main() {
   string s{"abcd"};
   string t{"becd"};
 
-  cout << "answer = " << lcp(s, t) << endl;
+  cout << "answer = " << lcs(s, t) << endl;
 }
