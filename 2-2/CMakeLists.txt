@@ -5,7 +5,3 @@ add_executable(interval_scheduling interval_scheduling.cpp)
 add_executable(best_cow_line_poj3617 best_cow_line_poj3617.cpp)
 add_executable(sarumans_army_poj3069 sarumans_army_poj3069.cpp)
 add_executable(fence_repair_poj3253 fence_repair_poj3253.cpp)
-
-add_executable(napsackproblem_1bluteforce napsackproblem_1bluteforce.cpp)
-add_executable(napsackproblem_2memorization napsackproblem_2memorization.cpp)
-add_executable(napsackproblem_3dploop napsackproblem_3dploop.cpp)

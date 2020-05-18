@@ -1,0 +1,6 @@
+project(challengebook CXX)
+
+add_executable(napsackproblem_1bluteforce napsackproblem_1bluteforce.cpp)
+add_executable(napsackproblem_2memorization napsackproblem_2memorization.cpp)
+add_executable(napsackproblem_3dploop napsackproblem_3dploop.cpp)
+add_executable(napsackproblem_4dploop_forward napsackproblem_4dploop_forward.cpp)
