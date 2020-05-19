@@ -22,6 +22,7 @@ int main() {
 
   // solve
   for (int i = 0; i < n; ++i)
+    // note: loop should be forward to use updated value.
     for (int j = w[i]; j <= W; ++j)
       dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
 
