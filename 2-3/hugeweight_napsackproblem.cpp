@@ -24,12 +24,9 @@ int main() {
   // define values
   int n = w.size();
   int vsum = accumulate(v.begin(), v.end(), 0);
-  vector<vector<int>> dp(
-      n + 1,
-      vector<int>(vsum + 1,
-                  INT_MAX - vsum)); // minimum weight for the value < j,
-                                    // selection from 0-i. we add w[i] later, so
-                                    // INT_MAX,UINT_MAX will overflow.
+  vector<vector<int>> dp(n + 1, vector<int>(vsum + 1, INT_MAX - vsum));
+  //< minimum weight for the value < j, selection from 0-i. we add w[i] later,
+  //so INT_MAX,UINT_MAX will overflow.
   dp[0][0] = 0;
 
   // solve
