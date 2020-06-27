@@ -1,0 +1,6 @@
+project(challengebook CXX)
+
+add_executable(priorityque_imple priorityque_imple.cpp)
+add_executable(priorityque_stl priorityque_stl.cpp)
+add_executable(priorityque_poj2431 priorityque_poj2431.cpp)
+add_executable(fence_repair_pku3253 fence_repair_pku3253.cpp)
