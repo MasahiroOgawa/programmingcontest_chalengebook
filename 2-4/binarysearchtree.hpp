@@ -19,7 +19,7 @@ public:
 
 private:
   Node *p{nullptr}; // we cannot use std::unique_ptr<Node> because unique_ptr
-                    // must refer to a dynamically allocated object like; new
+                    // must refer to a dynamically allocated object, like new
                     // Node().
 };
 
