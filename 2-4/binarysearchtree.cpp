@@ -1,5 +1,4 @@
 #include "binarysearchtree.hpp"
-
 #include <iostream>
 using namespace std;
 
@@ -25,6 +24,7 @@ Node *Binarysearchtree::insert(const int x) {
       p->lch = Binarysearchtree(p->lch).insert(x);
     else
       p->rch = Binarysearchtree(p->rch).insert(x);
+    return p;
   }
 }
 
@@ -63,10 +63,10 @@ void Binarysearchtree::print() {
   if (p == nullptr)
     return;
 
-  cout << p->val << endl
-       << "/"
-       << "\\" << endl;
+  // bad printing. I don't have good solution yet.
+  cout << p->val << endl << "/ \\" << endl;
 
   Binarysearchtree(p->lch).print();
+  cout << " ";
   Binarysearchtree(p->rch).print();
 }

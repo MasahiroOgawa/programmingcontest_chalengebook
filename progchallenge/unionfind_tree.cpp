@@ -1,20 +1,22 @@
-#include "unionfind_tree.h"
+#include "unionfind_tree.hpp"
 using namespace std;
 
-Unionfid_tree::Unionfid_tree(int num_elem) {
+namespace progchallenge {
+
+Unionfind_tree::Unionfind_tree(int num_elem) {
   for (int i = 0; i < num_elem; ++i) {
-      nodes.push_back(Node(i,0));
+    nodes.push_back(Node(i, 0));
   }
 }
 
-int Unionfid_tree::find_root(int x) {
+int Unionfind_tree::find_root(int x) {
   if (nodes[x].parent == x)
     return x;
   else
     return nodes[x].parent = find_root(nodes[x].parent);
 }
 
-void Unionfid_tree::unite(int x, int y) {
+void Unionfind_tree::unite(int x, int y) {
   x = find_root(x);
   y = find_root(y);
 
@@ -28,3 +30,5 @@ void Unionfid_tree::unite(int x, int y) {
       nodes[x].rank++;
   }
 }
+
+} // namespace progchallenge
