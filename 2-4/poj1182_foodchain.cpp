@@ -1,5 +1,6 @@
-#include "unionfind_tree.h"
 #include <iostream>
+#include <unionfind_tree.hpp>
+#include <vector>
 using namespace std;
 
 struct Info {
@@ -21,8 +22,9 @@ int main() {
 
   // algo
   unsigned num_wrong{0};
-  Unionfid_tree ut(3 * num_animals); // correspondense are x:x-A, x+num_animals:
-                                     // x-B, x+2*num_animals: x-C
+  progchallenge::Unionfind_tree ut(
+      3 * num_animals); // correspondense are x:x-A, x+num_animals:
+                        // x-B, x+2*num_animals: x-C
 
   int num_info{0};
   for (auto i : infos) {
@@ -44,7 +46,8 @@ int main() {
         ut.unite(i.x + 2 * num_animals, i.y + 2 * num_animals);
       }
     } else if (i.t == 2) {
-      if (ut.belong_same(i.x, i.y) || ut.belong_same(i.x, i.y + 2 * num_animals)) {
+      if (ut.belong_same(i.x, i.y) ||
+          ut.belong_same(i.x, i.y + 2 * num_animals)) {
         cout << "info " << num_info << " is wrong.\n";
         ++num_wrong;
       } else {
