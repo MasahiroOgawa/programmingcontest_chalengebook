@@ -1,1 +1,1 @@
-project(challengebook CXX)
+add_executable(bipartitegraph_decision bipartitegraph_decision.cpp)

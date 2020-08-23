@@ -13,3 +13,7 @@ add_test(NAME number_theory_test COMMAND number_theory_test)
 add_executable(unionfind_tree_test unionfind_tree.test.cpp)
 target_link_libraries(unionfind_tree_test progchallenge gtest_main)
 add_test(NAME unionfind_tree_test COMMAND unionfind_tree_test)
+
+add_executable(bellman_ford_test bellman_ford.test.cpp)
+target_link_libraries(bellman_ford_test progchallenge gtest_main)
+add_test(NAME bellman_ford_test COMMAND bellman_ford_test)
