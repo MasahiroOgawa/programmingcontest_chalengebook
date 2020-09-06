@@ -1,6 +1,6 @@
 project(challengebook CXX)
 
-add_library(progchallenge bellman_ford.cpp number_theory.cpp search.cpp print.cpp unionfind_tree.cpp dijkstra.cpp)
+add_library(progchallenge bellman_ford.cpp number_theory.cpp search.cpp print.cpp unionfind_tree.cpp dijkstra.cpp dijkstra_heap.cpp dijkstra_getpath.cpp)
 target_include_directories(progchallenge PUBLIC ${CMAKE_SOURCE_DIR})
 target_sources(progchallenge INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/adjacencylist.hpp) # to see this header in IDE.
 

@@ -1,8 +1,8 @@
-#include "../graph/adjacencylist.h"
+#include "dijkstra.hpp"
 #include <algorithm>
 #include <iostream>
 using namespace std;
-
+using namespace progchallenge;
 
 vector<int> get_path(const vector<int> &prev, int t) {
   vector<int> path;
@@ -17,7 +17,7 @@ vector<int> get_path(const vector<int> &prev, int t) {
 /// \param al
 /// compute the minimum distance from the first node of input adjacency list
 /// using Dijkstra method
-void dijkstra(const Adjacencylist &al) {
+void dijkstra_getpath(const Adjacencylist &al) {
   static const int INF{999999};
   vector<int> dists(al.size(), INF);
   vector<bool> used(al.size(), false);
@@ -50,24 +50,9 @@ void dijkstra(const Adjacencylist &al) {
   } // while
 
   // print minimum path
-  vector<int> minpath = get_path(prev, al.size()-1);
+  vector<int> minpath = get_path(prev, al.size() - 1);
   cout << "minimam path: ";
   for (const auto i : minpath)
     cout << i << ' ';
   cout << endl;
-}
-
-
-int main() {
-  // define adjacency list
-  vector<Edge> a{{1, 2}, {2, 5}};
-  vector<Edge> b{{0, 2}, {2, 4}, {3, 6}, {4, 10}};
-  vector<Edge> c{{0, 5}, {1, 4}, {3, 2}};
-  vector<Edge> d{{1, 6}, {2, 2}, {5, 1}};
-  vector<Edge> e{{1, 10}, {5, 3}, {6, 5}};
-  vector<Edge> f{{3, 1}, {4, 3}, {6, 9}};
-  vector<Edge> g{{4, 5}, {5, 9}};
-  Adjacencylist al({a, b, c, d, e, f, g});
-
-  dijkstra(al);
 }

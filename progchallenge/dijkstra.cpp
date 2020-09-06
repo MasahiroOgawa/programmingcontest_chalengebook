@@ -1,5 +1,4 @@
 #include "dijkstra.hpp"
-#include "adjacencylist.hpp"
 #include <iostream>
 using namespace std;
 
