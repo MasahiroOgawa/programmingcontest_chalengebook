@@ -26,4 +26,8 @@ TEST(DijkstraHeapTest, Basic) {
   EXPECT_EQ(dijkstra_heap(al), (vector<int>{0, 2, 5, 7, 11, 8, 16}));
 }
 
+TEST(DijkstraGetpathTest, Basic) {
+  EXPECT_EQ(dijkstra_getpath(al), (vector<int>{0, 2, 3, 5, 4, 6}));
+}
+
 } // namespace

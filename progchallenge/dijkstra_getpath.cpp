@@ -2,7 +2,8 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
-using namespace progchallenge;
+
+namespace progchallenge {
 
 vector<int> get_path(const vector<int> &prev, int t) {
   vector<int> path;
@@ -15,13 +16,14 @@ vector<int> get_path(const vector<int> &prev, int t) {
 ///
 /// \brief dijkstra
 /// \param al
+/// \return previous vertices of the minimum path.
 /// compute the minimum distance from the first node of input adjacency list
 /// using Dijkstra method
-void dijkstra_getpath(const Adjacencylist &al) {
+std::vector<int> dijkstra_getpath(const Adjacencylist &al) {
   static const int INF{999999};
   vector<int> dists(al.size(), INF);
   vector<bool> used(al.size(), false);
-  vector<int> prev(al.size(), -1);
+  vector<int> prev(al.size(), -1); // previous vertices of the minimum path.
   dists[0] = 0;
 
   while (1) {
@@ -42,17 +44,12 @@ void dijkstra_getpath(const Adjacencylist &al) {
         dists[edge.to] = dists[sourceidx] + edge.cost;
         prev[edge.to] = sourceidx;
       }
-
-    // print distances
-    cout << "current-------------\n";
-    for (size_t i = 0; i < dists.size(); ++i)
-      cout << "d[" << i << "]= " << dists[i] << endl;
   } // while
 
-  // print minimum path
+  // compute minimum path
   vector<int> minpath = get_path(prev, al.size() - 1);
-  cout << "minimam path: ";
-  for (const auto i : minpath)
-    cout << i << ' ';
-  cout << endl;
+
+  return minpath;
 }
+
+} // namespace progchallenge
