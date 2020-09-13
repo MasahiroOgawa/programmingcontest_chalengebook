@@ -31,11 +31,6 @@ std::vector<int> dijkstra(const Adjacencylist &al) {
     // propagate the distance
     for (auto edge : al[sourceidx])
       dists[edge.to] = min(dists[edge.to], dists[sourceidx] + edge.cost);
-
-    //    // print distances
-    //    cout << "current-------------\n";
-    //    for (size_t i = 0; i < dists.size(); ++i)
-    //      cout << "d[" << i << "]= " << dists[i] << endl;
   } // while
 
   return dists;
