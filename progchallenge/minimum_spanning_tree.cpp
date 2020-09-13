@@ -1,14 +1,17 @@
-#include <iostream>
-#include <vector>
+#include "minimum_spanning_tree.hpp"
+#include <limits>
+
 using namespace std;
 
-using Adjacencymat = vector<vector<int>>;
-static const int INF{1000000};
+namespace progchallenge {
 
 int prim(const Adjacencymat &am) {
   // define variables
   int V = am.size();
-  vector<int> mincost(V, INF); // minimum cost in X
+  vector<int> mincost(
+      V,
+      numeric_limits<int>::max()); // minimum cost in X. note:
+                                   // numeric_limits<int>::infinity() returns 0.
   mincost[0] = 0;
   vector<bool> used(V, false);
   int res{0};
@@ -31,12 +34,4 @@ int prim(const Adjacencymat &am) {
   return res;
 }
 
-int main() {
-  Adjacencymat am{
-      {0, INF, 1, INF, INF, INF, INF}, {INF, 0, 2, INF, 10, INF, INF},
-      {1, 2, 0, 3, INF, 7, INF},       {INF, INF, 3, 0, INF, 1, 5},
-      {INF, 10, INF, INF, 0, 5, INF},  {INF, INF, 7, 1, 5, 0, 8},
-      {INF, INF, INF, 5, INF, 8, 0}};
-
-  cout << "minimum spanning tree's total cost = " << prim(am) << endl;
-}
+} // namespace progchallenge

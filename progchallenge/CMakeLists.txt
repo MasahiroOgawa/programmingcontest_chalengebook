@@ -1,6 +1,7 @@
 project(challengebook CXX)
 
-add_library(progchallenge bellman_ford.cpp number_theory.cpp search.cpp print.cpp unionfind_tree.cpp dijkstra.cpp dijkstra_heap.cpp dijkstra_getpath.cpp warshall_floyd.cpp)
+add_library(progchallenge bellman_ford.cpp number_theory.cpp search.cpp print.cpp unionfind_tree.cpp
+    dijkstra.cpp dijkstra_heap.cpp dijkstra_getpath.cpp warshall_floyd.cpp minimum_spanning_tree.cpp)
 target_include_directories(progchallenge PUBLIC ${CMAKE_SOURCE_DIR})
 target_sources(progchallenge INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/adjacencylist.hpp) # to see this header in IDE.
 
@@ -25,3 +26,7 @@ add_test(NAME dijkstra_test COMMAND dijkstra_test)
 add_executable(warshall_floyd_test warshall_floyd.test.cpp)
 target_link_libraries(warshall_floyd_test progchallenge gtest_main)
 add_test(NAME warshall_floyd_test COMMAND warshall_floyd_test)
+
+add_executable(minimum_spanning_tree_test minimum_spanning_tree.test.cpp)
+target_link_libraries(minimum_spanning_tree_test progchallenge gtest_main)
+add_test(NAME minimum_spanning_tree_test COMMAND minimum_spanning_tree_test)
