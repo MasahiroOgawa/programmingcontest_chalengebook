@@ -1,14 +1,14 @@
-#include "graph/adjacencylist.hpp"
 #include <iostream>
+#include <progchallenge/adjacencylist.hpp>
 #include <queue>
 using namespace std;
-
+using namespace progchallenge;
 
 ///
 /// \brief dijkstra_heap
 /// \param al
 /// compute 1st, and 2nd shortest path
-void dijkstra_heap(const Adjacencylist &al) {
+void dijkstra_heap(const progchallenge::Adjacencylist &al) {
   static const int INF{999999};
   vector<int> dists(al.size(), INF);
   vector<int> dists2(al.size(), INF);
@@ -27,22 +27,29 @@ void dijkstra_heap(const Adjacencylist &al) {
 
     // propagate the distance
     for (auto edge : al[sourceidx]) {
-        int new_d = dists[sourceidx] + edge.cost;
+      // update dist
+      int new_d = dists[sourceidx] + edge.cost;
       if (dists[edge.to] > new_d) {
-        dists[edge.to] = new_d;
+        swap(dists[edge.to], new_d);
         que.push(P(dists[edge.to], edge.to));
       }
-      if (dists2[edge.to] > new_d && dists[edge.to] < new_d) {
-        dists2[edge.to] = new_d;
+
+      // choose smaller cost within round trip or new_d distance.
+      int round_d = dists[sourceidx] + 3 * edge.cost;
+      int candity = min(new_d, round_d);
+
+      // update dist2
+      if (dists2[edge.to] > candity && dists[edge.to] < candity) {
+        dists2[edge.to] = candity;
         que.push(P(dists2[edge.to], edge.to));
       }
     }
 
     // print distances
     cout << "current-------------\n";
-    for (size_t i = 0; i < dists.size(); ++i){
-        cout << "d[" << i << "]= " << dists[i] << endl;
-        cout << "d2[" << i << "]= " << dists2[i] << endl;
+    for (size_t i = 0; i < dists.size(); ++i) {
+      cout << "d[" << i << "]= " << dists[i] << endl;
+      cout << "d2[" << i << "]= " << dists2[i] << endl;
     }
   } // while
 }

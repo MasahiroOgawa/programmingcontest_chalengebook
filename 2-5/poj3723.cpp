@@ -1,6 +1,8 @@
-#include "../minimum_spanning_tree/kruskal.h"
 #include <iostream>
+#include <progchallenge/kruskal.hpp>
+
 using namespace std;
+using namespace progchallenge;
 
 int main() {
   int N{5}, M{5};

@@ -12,7 +12,7 @@ struct Edge {
   int from{0}; // optional. because it can be decided by the vector<Edge> order.
   Edge(const int t, const int c) : to(t), cost(c) {}
   Edge(const int f, const int t, const int c)
-      : from(f), to(t), cost(c) {
+      : to(t), cost(c), from(f) {
   } // we want to make this constructor for 3 int inputs
 };
 
